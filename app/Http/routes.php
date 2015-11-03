@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route to show the login form
+Route::get('/login', array('uses' => 'LoginController@showLogin'));
+
+//Route to process the form
+Route::get('/login', array('uses' => 'LoginController@doLogin'));
