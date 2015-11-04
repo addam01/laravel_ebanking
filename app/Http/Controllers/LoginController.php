@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
+    public function showLogin(){
+        //show the form
+        return View::make('login');
+    }
+    public function doLogin(){
+        //process the form
+    }
     /**
      * Display a listing of the resource.
      *
