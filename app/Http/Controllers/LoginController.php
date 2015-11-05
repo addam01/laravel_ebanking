@@ -3,92 +3,68 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Validator;
 
 class LoginController extends Controller
-{
-    public function showLogin(){
-        //show the form
-        return View::make('login');
-    }
-    public function doLogin(){
-        //process the form
-    }
+{    
+     /*
+    |--------------------------------------------------------------------------
+    | Registration & Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users, as well as the
+    | authentication of existing users. By default, this controller uses
+    | a simple trait to add these behaviors. Why don't you explore it?
+    |
+    */
+
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    private $redirectTo = '/';
+
     /**
-     * Display a listing of the resource.
+     * Create a new authentication controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Get a validator for an incoming registration request.
      *
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function create()
+    protected function validator(array $data)
     {
-        //
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'username' => 'required|min:6',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a new user instance after a valid registration.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return User
      */
-    public function store(Request $request)
+    protected function create(array $data)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return User::create([
+            'name' => $data['name'],
+            'username'  => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
 }

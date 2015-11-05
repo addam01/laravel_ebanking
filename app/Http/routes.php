@@ -16,7 +16,14 @@ Route::get('/', function () {
 });
 
 //Route to show the login form
-Route::get('/login', array('uses' => 'LoginController@showLogin'));
+Route::get('/login', 'LoginController@getLogin');
+Route::post('/login', 'LoginController@postLogin');
+Route::get('/logout', 'LoginController@getLogout');
 
-//Route to process the form
-Route::get('/login', array('uses' => 'LoginController@doLogin'));
+//Route to process the registration form
+Route::get('/register', 'LoginController@getRegister');
+Route::post('/register', 'LoginController@postRegister');
+
+Route::controllers([
+   'password' => 'Auth\PasswordController',
+]);
