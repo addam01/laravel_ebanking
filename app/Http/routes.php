@@ -28,7 +28,4 @@ Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('Home', array('as' => 'index', function()
-{
-   return view('index');
-}));
+
