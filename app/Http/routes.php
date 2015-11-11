@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //Route to show the login form
@@ -27,3 +27,8 @@ Route::post('/register', 'LoginController@postRegister');
 Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('Home', array('as' => 'index', function()
+{
+   return view('index');
+}));

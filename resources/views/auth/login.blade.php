@@ -1,8 +1,8 @@
 <!-- Create master layout in layouts folder -->
-
-
-<div class="container-fluid">
-	<div class="row">
+@extends('layout.master')
+@section('content')
+<div class="container">
+	<div class="row text-center">
         
 	<div class="col-md-8 col-md-offset-2">
 	<div class="panel panel-default">
@@ -49,7 +49,7 @@
 
 <div class="form-group">
 	<div class="col-md-6 col-md-offset-4">
-	<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+	<button href="{{ URL::route('index') }}" type="submit" class="btn btn-primary" style="margin-right: 15px;">
 		Login
 	</button>
 
@@ -63,3 +63,4 @@
 
 </div>
 </div>
+@endsection
