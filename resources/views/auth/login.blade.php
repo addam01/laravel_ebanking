@@ -1,6 +1,14 @@
 <!-- Create master layout in layouts folder -->
 @extends('layout.master')
+<section class="content-header text-center">
+                    <h1>
+                    E-Banking </br></br>
+                    <small>Control panel</small>
+                    </h1>
+                    
+                </section>
 @section('content')
+{{-- @include('layout.header') --}}
 <div class="container">
 	<div class="row text-center">
         
@@ -63,4 +71,6 @@
 
 </div>
 </div>
+@include('layout.footer')
 @endsection
+
