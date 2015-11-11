@@ -28,4 +28,6 @@ Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('dashboard', 'UserDashboard@index');
+
 
