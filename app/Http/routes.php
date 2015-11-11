@@ -27,3 +27,6 @@ Route::post('/register', 'LoginController@postRegister');
 Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
+
+//Route for User Dashboard
+Route::get('/dashboard', 'UserDashboard@index');
