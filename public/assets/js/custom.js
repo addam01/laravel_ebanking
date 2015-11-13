@@ -10,6 +10,9 @@
    
     ========================================================  */
 
+var today = new Date();
+document.getElementById('dtText').innerHTML=today;
+
 (function ($) {
     "use strict";
     var mainApp = {
