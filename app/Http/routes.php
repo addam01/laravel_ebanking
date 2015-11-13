@@ -28,6 +28,9 @@ Route::controllers([
    'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('dashboard', 'UserDashboard@index');
+Route::get('/dashboard', [
+	'middleware' => 'auth',
+	'uses' => 'UserDashboard@index'
+	]);
 
 
