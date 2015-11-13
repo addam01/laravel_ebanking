@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\UserAccount;
+use Auth;
 
 class UserDashboard extends Controller
 {
@@ -18,7 +19,8 @@ class UserDashboard extends Controller
      */
     public function index()
     {
-        $user = UserAccount::all();
+        $id = Auth::user()->id;
+        $user = UserAccount::find($id);
         return view('dashboard.dashboardMain',['users' => $user]);
     }
 

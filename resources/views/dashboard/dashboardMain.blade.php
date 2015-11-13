@@ -45,7 +45,7 @@ font-size: 16px;"> Last access : <span id="dtText"></span> &nbsp; <a href="{{url
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Dashboard</h2>   
-                        <h5>Welcome Mohd Suffian Mohd Shah</h5>
+                        <h5>{{$users -> name}}</h5>
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -58,7 +58,7 @@ font-size: 16px;"> Last access : <span id="dtText"></span> &nbsp; <a href="{{url
                 </span>
                 <div class="text-box" >
                     <p class="main-text">Account Number</p>
-                    <p class="text-muted">12345678901234567890</p>
+                    <p class="text-muted">{{$users -> account_no}}</p>
                 </div>
              </div>
              </div>                    
