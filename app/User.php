@@ -36,4 +36,14 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function getRememberTokenName(){
+        return null; //not supported
+    }
+    public function setAttribute($key, $value){
+        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+        if(!$isRememberTokenAttribute){
+            parent::setAttribute($key,$value);
+        }
+    }
 }

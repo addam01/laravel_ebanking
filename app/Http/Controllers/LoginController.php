@@ -27,7 +27,7 @@ class LoginController extends Controller
     
     protected $redirectTo = '/dashboard';
     protected $loginPath = '/login';
-
+    protected $redirectAfterLogout = '/login';
     /**
      * Create a new authentication controller instance.
      *
@@ -69,4 +69,5 @@ class LoginController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    
 }
