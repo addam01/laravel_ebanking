@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\UserAccount;
+
 class UserDashboard extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class UserDashboard extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboardMain');
+        $user = UserAccount::all();
+        return view('dashboard.dashboardMain',['users' => $user]);
     }
 
     /**

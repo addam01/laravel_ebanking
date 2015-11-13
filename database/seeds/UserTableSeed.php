@@ -16,22 +16,22 @@ class UserTableSeed extends Seeder
         $users = [
         	[
         	'name' => 'Addam',
-        	'username' => 'addam',
+        	'account_no' => '1234567890',
         	'email' => 'addam@iat.com.my',
         	'password' => Hash::make('addam123'),
         	],[
         	'name' => 'Suffian',
-        	'username' => 'suffian',
+        	'account_no' => '1234567890',
         	'email' => 'suffian@iat.com.my',
         	'password' => Hash::make('suffian123'),
         	],[
         	'name' => 'Asyraf',
-        	'username' => 'asyraf',
+        	'account_no' => '0987654321',
         	'email' => 'asyraf@iat.com.my',
         	'password' => Hash::make('asyraf123'),
         	],[
         	'name' => 'Syahmi',
-        	'username' => 'syahmi',
+        	'account_no' => '0987654321',
         	'email' => 'syahmi@iat.com.my',
         	'password' => Hash::make('syahmi123'),
         	]
