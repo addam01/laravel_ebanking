@@ -36,4 +36,5 @@ Route::get('/dashboard', [
 	'uses' => 'UserDashboard@index'
 	]);
 
-
+Route::get('/transaction','TransactionController@index');
+Route::post('/transaction','TransactionController@search');
